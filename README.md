@@ -23,7 +23,7 @@
 
     -7- in collapsing section the collapse icon disappear and other icon show up to uncollapse by clicking on it 
 
-    -8- the template is responsive and can easly viewed from fifferent devices , mobile , tab and pc devices
+    -8- the template is responsive and can easly viewed from different devices , mobile , tab and pc devices
 
 * template folder consists of:
     -1- folder css 

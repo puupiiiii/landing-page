@@ -1,9 +1,9 @@
 //style nav bar
-let navBar = document.getElementById('navbar');
+const navBar = document.getElementById('navbar');
 navBar.style.cssText = 'background-color: #333; cursor: pointer; width: 100%; position: fixed; top: 0; z-index: 2; opacity: 0';
 
 //show and hide navbar on scrolling
-let scrollingShowNav;
+const scrollingShowNav;
 window.addEventListener('scroll', function ( event ) {
     navBar.style.opacity = 1;
 	window.clearTimeout( scrollingShowNav );
@@ -22,12 +22,12 @@ function hideNavbar(x) {
 }
 
 //create the menu (ul) 
-let menu = document.createElement('ul');
+const menu = document.createElement('ul');
 menu.classList = 'menu';
 
 // create ul (li)s and (a)s
-let menuItems = ['First Sec', 'Second Sec', 'Third Sec', 'Forth Sec'];
-let linksId = ['firstSec', 'secondSec', 'thirdSec', 'forthSec'];
+const menuItems = ['First Sec', 'Second Sec', 'Third Sec', 'Forth Sec'];
+const linksId = ['firstSec', 'secondSec', 'thirdSec', 'forthSec'];
 
 for (let i = 0; i < menuItems.length; i++) {
     const item = document.createElement('li');
@@ -56,8 +56,8 @@ navBar.appendChild(menu);
 
 // add class active to each clicked nav bar link and remove from siblings
 // add class active to active section and remove from siblings
-let sections = document.getElementsByClassName('section');
-let links = document.getElementsByClassName('click');
+const sections = document.getElementsByClassName('section');
+const links = document.getElementsByClassName('click');
 
 for (let i = 0; i < links.length; i++) {
     links[i].addEventListener('click', ()=> {
@@ -74,6 +74,46 @@ for (let i = 0; i < links.length; i++) {
         }
     });
 }
+
+//smooth scrolling to taget section when click on navbar links
+// (function() {
+// 	scrollTo();
+// })();
+
+// function scrollTo() {
+// 	const linksA = document.querySelectorAll('.link');
+// 	linksA.forEach(each => (each.onclick = scrollAnchors));
+// }
+
+// function scrollAnchors(e, respond = null) {
+// 	const distanceToTop = el => Math.floor(el.getBoundingClientRect().top);
+// 	e.preventDefault();
+// 	var targetID = (respond) ? respond.getAttribute('href') : this.getAttribute('href');
+// 	const targetAnchor = document.querySelector(targetID);
+// 	if (!targetAnchor) return;
+// 	const originalTop = distanceToTop(targetAnchor);
+// 	window.scrollBy({ top: originalTop, left: 0, behavior: 'smooth' });
+// 	const checkIfDone = setInterval(function() {
+// 		const atBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2;
+// 		if (distanceToTop(targetAnchor) === 0 || atBottom) {
+// 			targetAnchor.tabIndex = '-1';
+// 			targetAnchor.focus();
+// 			window.history.pushState('', '', targetID);
+// 			clearInterval(checkIfDone);
+// 		}
+// 	}, 100);
+// }
+
+function scrollTo() {
+	var links = document.getElementsByTagName('a');
+	for (var i = 0; i < links.length; i++) {
+		var link = links[i];
+		if ((link.href && link.href.indexOf('#') != -1) && ((link.pathname == location.pathname) || ('/' + link.pathname == location.pathname)) && (link.search == location.search)) {
+			link.onclick = scrollAnchors;
+		}
+	}
+}
+
 
 //scrolling activate the nav bar links and sections
 window.addEventListener('scroll', () => {
@@ -97,7 +137,7 @@ window.addEventListener('scroll', () => {
 });
 
 //show and hide scroll up btn on scrolling
-let scrollUpBtn = document.getElementById('scroll-up');
+const scrollUpBtn = document.getElementById('scroll-up');
 window.addEventListener('scroll', ()=> {
     if (window.pageYOffset > 400) {
         scrollUpBtn.style.display='block';
@@ -116,9 +156,9 @@ scrollUpBtn.addEventListener('click' , ()=> {
 });
 
 //collapse and uncollapse sections
-let collapseIcons = document.getElementsByClassName('collapse');
-let secContents = document.getElementsByClassName('section-content');
-let uncollapseIcons = document.getElementsByClassName('uncollapse')
+const collapseIcons = document.getElementsByClassName('collapse');
+const secContents = document.getElementsByClassName('section-content');
+const uncollapseIcons = document.getElementsByClassName('uncollapse')
 
 for (let c = 0; c < collapseIcons.length; c++) {
     collapseIcons[c].addEventListener('click', ()=> {
