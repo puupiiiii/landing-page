@@ -6,6 +6,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.navbar {
+    height: 80px;
+}
+
 .navbar:hover {
     opacity: 1;
 }
@@ -20,6 +24,9 @@ body {
 
 .menu li {
     display: inline;
+}
+
+.menu li:not(:last-of-type) {
     margin-right: 30px;
 }
 
@@ -60,6 +67,7 @@ body {
     color: #333;
     position: relative;
     transition: all .5s ease-in-out;
+    margin-bottom: 30px;
 }
 
 .section.active {
@@ -69,7 +77,7 @@ body {
 .section .collapse {
     position: absolute;
     top: 109px;
-    right: 500px;
+    right: 350px;
     font-size: 40px;
     color: #333;
     cursor: pointer;
@@ -78,7 +86,7 @@ body {
 .section .uncollapse {
     position: absolute;
     top: 109px;
-    right: 500px;
+    right: 350px;
     font-size: 40px;
     color: #333;
     cursor: pointer;
@@ -90,13 +98,16 @@ body {
     color: #f08282;
 }
 
-.section.active h2 {
-    color: #f08282;
+.section h2 {
+    color: #333;
     font-size: 30px;
     margin: 0 0 20px 0;
     padding-top: 30px;
 }
 
+.section.active h2 {
+    color: #f08282;
+}
 
 .section h2 {
     text-align: center;
@@ -222,7 +233,7 @@ body {
 }
 
 .thirdSec.active .secthree ,
-.thirdSec.active h4{
+.thirdSec.active h4 {
     color: #f08282;
 }
 
@@ -235,7 +246,7 @@ body {
     position: relative;
 }
 
-.forthSec h2:after {
+.forthSec h2::after {
     content: '';
     height: 2px;
     width: 0;
@@ -246,7 +257,7 @@ body {
     transition: all .7s ease-in-out;
 }
 
-.forthSec.active h2:after {
+.forthSec.active h2::after {
     width: 80px;
 }
 
@@ -273,7 +284,7 @@ body {
     border: none;
     border-bottom: 1px solid #ebe6e6;
     margin-bottom: 10px;
-    padding-left: 10px ;
+    text-indent: 10px;
     outline: none;
 }
 
@@ -288,7 +299,7 @@ body {
     height: 160px;
     border: none;
     border-bottom: 1px solid #ebe6e6;
-    padding-left: 20px;
+    text-indent: 10px;
     padding-top: 16px;
     outline: none;
 }
@@ -308,6 +319,7 @@ body {
     transition: all .5s ease-in-out;
     font-size: 16px;
     outline: none;
+    margin-bottom: 80px;
 }
 
 .forthSec.active button {
@@ -328,27 +340,589 @@ body {
     line-height: 70px;
     text-align: center;
     font-size: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 /*scroll up button*/
 .scrollUp {
-width: 35px;
-height: 35px;
-border-radius: 50%;
-text-align: center;
-position: fixed;
-right: 25px;
-bottom: 50px;
-z-index: 3;
-font-size: 23px;
-display: none;
-cursor: pointer;
-color: #333;
-border: 1px solid #f5d7d7;
-background-color: #fdf1f1;
-transition: all .5s ease-in-out;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    position: fixed;
+    right: 25px;
+    bottom: 50px;
+    z-index: 3;
+    font-size: 23px;
+    display: none;
+    cursor: pointer;
+    color: #333;
+    border: 1px solid #f5d7d7;
+    background-color: #fdf1f1;
+    transition: all .5s ease-in-out;
 }
 
 .scrollUp:hover {
     border: 1px solid #333;
+}
+
+/*media query*/
+@media (max-width: 576px) {
+    .navbar {
+        height: 50px;
+    }
+    .menu {
+        line-height: 50px;
+    }
+    .menu li:not(:last-of-type) {
+        margin-right: 15px;
+    }
+    .menu li a {
+        font-size: 14px;
+    }
+    .menu li a::after {
+        height: 1px;
+        top:20px;
+    }
+    .section {
+        padding: 50px 0 30px 0;
+    }
+    .section h2 {
+        font-size: 24px;
+        margin: 0;
+        padding-top: 30px;
+    }
+    .section .collapse {
+        top: 82px;
+        right: 100px;
+        font-size: 27px;
+    }
+    .section .uncollapse {
+        top: 82px;
+        right: 100px;
+        font-size: 27px;
+    }
+    .firstSec .parent {
+        margin: 40px 0;
+    }
+    .firstSec .text {
+        float: none;
+        width: 80%;
+        margin: 0 10%;
+    }
+    .firstSec .image {
+        float: none;
+        width: 100%;
+        margin: 30px 0;
+        text-align: center;
+    }
+    .secondSec p {
+        font-size: 16px;
+    }
+    .secondSec .parent .child:first-of-type ,
+    .secondSec .parent .child:nth-of-type(2) ,
+    .secondSec .parent .child:last-of-type {
+        margin: 0 0 30px 0;
+    }
+    .secondSec .parent .child {
+        float: none;
+        width: 100%;
+    }
+    .secondSec .parent .child p {
+        font-size: 16px;
+        line-height: 1.5;
+        width: 80%;
+        margin: 10px auto;
+    }
+    .secondSec .secTwo {
+        border: 2px solid #333;
+        border-radius: 50%;
+        height: 60px;
+        width: 60px;
+        line-height: 60px;
+        font-size: 30px;
+    }
+    .secondSec .lastP {
+        width: 80%;
+        margin: 0 auto 20px;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+    .thirdSec .imgChild {
+        float: none;
+        margin: 0 0 50px 0;
+        width: 100%;
+        text-align: center;
+    }
+    .thirdSec .textChild {
+        float: none;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .forthSec h2::after {
+        top: 70px;
+        left: 45%;
+    }
+    .forthSec.active h2::after {
+        width: 60px;
+    }
+    .forthSec p {
+        margin: 50px auto 70px auto;
+        font-size: 16px;
+        width: 80%;
+        line-height: 1.7;
+    }
+    .forthSec .childOne {
+        float: none;
+        width: 80%;
+        margin: 0 10% ;
+    }
+    .forthSec .childTwo {
+        float: none;
+        width: 80%;
+        margin: 0 10%;
+    }
+    .forthSec button {
+        width: 170px;
+        height: 45px;
+        font-size: 14px;
+        margin-bottom: 50px;
+    }
+    /*footer*/
+    .footer {
+        height: 40px;
+        line-height: 40px;
+        font-size: 17px;
+    }
+    /*scroll up button*/
+    .scrollUp {
+        width: 30px;
+        height: 30px;
+        right: 25px;
+        bottom: 25px;
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px)  {
+    .navbar {
+        height: 60px;
+    }
+    .menu {
+        line-height: 60px;
+    }
+    .menu li:not(:last-of-type) {
+        margin-right: 17px;
+    }
+    .menu li a {
+        font-size: 16px;
+    }
+    .menu li a::after {
+        height: 1px;
+        top:20px;
+    }
+    .section {
+        padding: 50px 0 30px 0;
+    }
+    .section h2 {
+        font-size: 26px;
+        margin: 0;
+        padding-top: 30px;
+    }
+    .section .collapse {
+        top: 85px;
+        right: 100px;
+        font-size: 27px;
+    }
+    .section .uncollapse {
+        top: 85px;
+        right: 100px;
+        font-size: 27px;
+    }
+    .firstSec .parent {
+        margin: 40px 0;
+    }
+    .firstSec .text {
+        float: none;
+        width: 80%;
+        margin: 0 10%;
+    }
+    .firstSec .image {
+        float: none;
+        width: 100%;
+        margin: 40px 0 30px;
+        text-align: center;
+    }
+    .secondSec p {
+        font-size: 17px;
+    }
+    .secondSec .parent .child:first-of-type ,
+    .secondSec .parent .child:nth-of-type(2) ,
+    .secondSec .parent .child:last-of-type {
+        margin: 0 0 35px 0;
+    }
+    .secondSec .parent .child {
+        float: none;
+        width: 100%;
+    }
+    .secondSec .parent .child p {
+        font-size: 17px;
+        line-height: 1.5;
+        width: 80%;
+        margin: 10px auto;
+    }
+    .secondSec .secTwo {
+        border: 2px solid #333;
+        border-radius: 50%;
+        height: 65px;
+        width: 65px;
+        line-height: 65px;
+        font-size: 32px;
+    }
+    .secondSec .lastP {
+        width: 80%;
+        margin: 0 auto 20px;
+        font-size: 17px;
+        line-height: 1.7;
+    }
+    .thirdSec .imgChild {
+        float: none;
+        margin: 0 0 50px 0;
+        width: 100%;
+        text-align: center;
+    }
+    .thirdSec .textChild {
+        float: none;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .forthSec h2::after {
+        top: 70px;
+        left: 47%;
+    }
+    .forthSec.active h2::after {
+        width: 65px;
+    }
+    .forthSec p {
+        margin: 50px auto 70px auto;
+        font-size: 18px;
+        width: 80%;
+        line-height: 1.7;
+    }
+    .forthSec .childOne {
+        float: none;
+        width: 80%;
+        margin: 0 10% ;
+    }
+    .forthSec .childTwo {
+        float: none;
+        width: 80%;
+        margin: 0 10%;
+    }
+    .forthSec button {
+        width: 180px;
+        height: 47px;
+        font-size: 15px;
+        margin-bottom: 50px;
+    }
+    /*footer*/
+    .footer {
+        height: 50px;
+        line-height: 50px;
+        font-size: 18px;
+    }
+    /*scroll up button*/
+    .scrollUp {
+        width: 33px;
+        height: 33px;
+        right: 25px;
+        bottom: 33px;
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {  
+    .navbar {
+        height: 70px;
+    }
+    .menu {
+        line-height: 70px;
+    }
+    .menu li:not(:last-of-type) {
+        margin-right: 20px;
+    }
+    .menu li a {
+        font-size: 18px;
+    }
+    .menu li a::after {
+        height: 1px;
+        top:25px;
+    }
+    .section {
+        padding: 50px 0 30px 0;
+    }
+    .section h2 {
+        font-size: 30px;
+        margin: 0;
+        padding-top: 40px;
+    }
+    .section .collapse {
+        top: 96px;
+        right: 150px;
+        font-size: 28px;
+    }
+    .section .uncollapse {
+        top: 96px;
+        right: 150px;
+        font-size: 28px;
+    }
+    .firstSec .parent {
+        margin: 40px 0;
+    }
+    .firstSec .text {
+        float: left;
+        width: 60%;
+        margin: 0 5%;
+    }
+    .firstSec .image {
+        float: left;
+        width: 30%;
+        margin: 40px 0 30px;
+        text-align: center;
+    }
+    .secondSec p {
+        font-size: 18px;
+        line-height: 1.7;
+    }
+    .secondSec .parent .child:first-of-type ,
+    .secondSec .parent .child:nth-of-type(2) ,
+    .secondSec .parent .child:last-of-type {
+        margin: 0 0 35px 0;
+    }
+    .secondSec .parent .child {
+        float: none;
+        width: 100%;
+    }
+    .secondSec .parent .child p {
+        font-size: 18px;
+        line-height: 1.7;
+        width: 80%;
+        margin: 10px auto;
+    }
+    .secondSec .secTwo {
+        border: 2px solid #333;
+        border-radius: 50%;
+        height: 67px;
+        width: 67px;
+        line-height: 67px;
+        font-size: 33px;
+    }
+    .secondSec .lastP {
+        width: 80%;
+        margin: 0 auto;
+        font-size: 18px;
+        line-height: 1.7;
+        margin-bottom: 30px;
+    }
+    .thirdSec .imgChild {
+        float: none;
+        margin: 0 0 50px 0;
+        width: 100%;
+        text-align: center;
+    }
+    .thirdSec .textChild {
+        float: none;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .forthSec h2::after {
+        top: 85px;
+        left: 46.5%;
+    }
+    .forthSec.active h2::after {
+        width: 70px;
+    }
+    .forthSec p {
+        margin: 50px auto 70px auto;
+        font-size: 18px;
+        width: 80%;
+        line-height: 1.7;
+    }
+    .forthSec .childOne {
+        float: none;
+        width: 80%;
+        margin: 0 10% ;
+    }
+    .forthSec .childTwo {
+        float: none;
+        width: 80%;
+        margin: 0 10%;
+    }
+    .forthSec button {
+        width: 180px;
+        height: 47px;
+        font-size: 15px;
+        margin-bottom: 50px;
+    }
+    /*footer*/
+    .footer {
+        height: 55px;
+        line-height: 55px;
+        font-size: 19px;
+    }
+    /*scroll up button*/
+    .scrollUp {
+        width: 33px;
+        height: 33px;
+        right: 25px;
+        bottom: 35px;
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) { 
+    .navbar {
+        height: 75px;
+    }
+    .menu {
+        line-height: 75px;
+    }
+    .menu li:not(:last-of-type) {
+        margin-right: 20px;
+    }
+    .menu li a {
+        font-size: 18px;
+    }
+    .menu li a::after {
+        height: 1px;
+        top:27px;
+    }
+    .section {
+        padding: 50px 0 30px 0;
+    }
+    .section h2 {
+        font-size: 30px;
+        margin: 0;
+        padding-top: 40px;
+    }
+    .section .collapse {
+        top: 96px;
+        right: 150px;
+        font-size: 28px;
+    }
+    .section .uncollapse {
+        top: 96px;
+        right: 150px;
+        font-size: 28px;
+    }
+    .firstSec .parent {
+        margin: 40px 0;
+    }
+    .firstSec .text {
+        float: left;
+        width: 60%;
+        margin: 0 5%;
+    }
+    .firstSec .image {
+        float: left;
+        width: 30%;
+        margin: 40px 0 30px;
+        text-align: center;
+    }
+    .secondSec p {
+        font-size: 18px;
+        line-height: 1.7;
+    }
+    .secondSec .parent .child:first-of-type ,
+    .secondSec .parent .child:nth-of-type(2) ,
+    .secondSec .parent .child:last-of-type {
+        margin: 0 0 35px 0;
+    }
+    .secondSec .parent .child {
+        float: none;
+        width: 100%;
+    }
+    .secondSec .parent .child p {
+        font-size: 18px;
+        line-height: 1.7;
+        width: 80%;
+        margin: 10px auto;
+    }
+    .secondSec .secTwo {
+        border: 2px solid #333;
+        border-radius: 50%;
+        height: 67px;
+        width: 67px;
+        line-height: 67px;
+        font-size: 33px;
+    }
+    .secondSec .lastP {
+        width: 80%;
+        margin: 0 auto;
+        font-size: 18px;
+        line-height: 1.7;
+        margin-bottom: 30px;
+    }
+    .thirdSec .imgChild {
+        float: left;
+        margin: 30px 2% 50px 0;
+        width: 48%;
+        text-align: center;
+    }
+    .thirdSec .textChild {
+        float: left;
+        width: 48%;
+        margin: 0 2% 0 0;
+    }
+    .forthSec h2::after {
+        top: 85px;
+        left: 46.5%;
+    }
+    .forthSec.active h2::after {
+        width: 70px;
+    }
+    .forthSec p {
+        margin: 50px auto 70px auto;
+        font-size: 18px;
+        width: 80%;
+        line-height: 1.7;
+    }
+    .forthSec button {
+        width: 180px;
+        height: 47px;
+        font-size: 15px;
+        margin-bottom: 50px;
+    }
+    /*footer*/
+    .footer {
+        height: 55px;
+        line-height: 55px;
+        font-size: 19px;
+    }
+    /*scroll up button*/
+    .scrollUp {
+        width: 33px;
+        height: 33px;
+        right: 25px;
+        bottom: 35px;
+        font-size: 22px;
+    }
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .thirdSec .imgChild {
+        float: left;
+        margin: 30px 2% 50px 0;
+        width: 48%;
+        text-align: center;
+    }
+    .thirdSec .textChild {
+        float: left;
+        width: 48%;
+        margin: 0 2% 0 0;
+    }
 }

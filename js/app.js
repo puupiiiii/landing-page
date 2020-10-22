@@ -1,6 +1,6 @@
 //style nav bar
 var navBar = document.getElementById('navbar');
-navBar.style.cssText = 'height: 80px; background-color: #333; cursor: pointer; width: 100%; position: fixed; top: 0; z-index: 2; opacity: 0';
+navBar.style.cssText = 'background-color: #333; cursor: pointer; width: 100%; position: fixed; top: 0; z-index: 2; opacity: 0';
 
 //show and hide navbar on scrolling
 var scrollingShowNav;
