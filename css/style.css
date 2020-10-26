@@ -11,7 +11,14 @@ body {
 }
 
 .navbar {
+    background-color: #333; 
     height: 80px;
+    width: 100%; 
+    position: fixed; 
+    top: 0; 
+    z-index: 2; 
+    opacity: 0;
+    cursor: pointer; 
 }
 
 .navbar:hover {
